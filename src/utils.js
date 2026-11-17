@@ -17,3 +17,18 @@ export const getTrendings = async () => {
     const rs = await api.get("/trending/all/week")
     return rs.data.results
 }
+
+
+export const getMovies = async () => {
+    const rs = await api.get("/discover/movie")
+    return rs.data.results
+}
+
+export const getTVshows = async () => {
+    const rs = await api.get("/discover/tv")
+    return rs.data.results
+}
+
+export const getVote = (media) => {
+    return Math.round(media.vote_average)
+}

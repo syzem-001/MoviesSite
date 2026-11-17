@@ -2,6 +2,8 @@ import React from 'react'
 import { getTrendings, img_300 } from '../utils'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { MediaList } from '../components/MediaList'
+import { Loading } from '../components/Loading'
 
 export const Home = () => {
 
@@ -17,11 +19,9 @@ export const Home = () => {
 
   return (
     <div>
-      {
-        Trendings && Trendings.map(obj => 
-          <img src={img_300+obj.poster_path} alt="kép" key={obj.id}/>
-        )
-      }
+        {
+          Trendings ? <MediaList data={Trendings} type='trending'/> : <Loading/>
+        }
     </div>
   )
 }
