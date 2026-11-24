@@ -1,20 +1,21 @@
 import React from 'react'
-import { getTrailer, img_500 } from '../utils'
+import { getCredits, getTrailer, img_500 } from '../utils'
 import { FaYoutube } from "react-icons/fa";
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Carousel } from './Carousel';
 
 export const MyModal = ({isOpen,setIsOpen,media,type}) => {
 
     const [trailer, setTrailer] = useState([])
+    const [credits, setCredits] = useState(null)
 
     useEffect(() => {
       getTrailer(media.media_type ? media.media_type : type,media.id).then(setTrailer)
-      
+      getCredits(media.media_type || type,media.id).then(setCredits)
     }, [])
     
-    const getYoutube = trailer.find(obj => obj.site == "Youtube")
-
+    credits && console.log(credits)
 
 console.log(trailer);
     
@@ -29,7 +30,13 @@ console.log(trailer);
                     <span>({media.first_air_date || media.release_date})</span>
                 </h3>
                 <p className="py-4">{media.overview}</p>
-                <div className="modal-action flex justify-between items-center gap-2">
+
+                <div>
+                     {credits && <Carousel credits={credits.slice(0,8)}/>}
+                </div>
+               
+
+                <div className="modal-action flex justify-between items-center gap-2 ">
 
                     {trailer.length > 0 && <a href={`https://youtube.com/watch?v=${trailer[0].key}`}target='_blank'><FaYoutube fontSize={30}/></a>} 
                     <form method="dialog">
