@@ -12,9 +12,9 @@ const handleDragStart = (e) => e.preventDefault();
 export const Carousel = ({credits}) => {
 
     const items = credits.map(obj => 
-        <div className='flex flex-col justify-center items-center gap-4' key={obj.id}>
-            <img src={obj.profile_path ? img_300+obj.profile_path : "noImage.jpg"} alt={obj.name} className='p-1 w-full h-40 object-contain ' />
-            <p className='text-[15px]'>{obj.name}</p>
+        <div className='flex flex-col justify-center items-center gap-5' key={obj.id}>
+            <img src={obj.profile_path ? img_300+obj.profile_path : "noImage.jpg" || obj.backdrop_path ? img_300+obj.backdrop_path : "noImage.jpg"} alt={obj.name} className='p-1 w-full h-40 object-contain ' />
+            <p className='text-[15px] p-1'>{obj.name || obj.title}</p>
         </div>
     )
 

@@ -27,7 +27,8 @@ export const MyHeader = () => {
                 <NavLink to='/'  className={navlinkClass}>Kezdőlap</NavLink> 
                 <NavLink to='/movies' className={navlinkClass}>Movies</NavLink>  
                 <NavLink to='/tv'   className={navlinkClass}>TV</NavLink>  
-                <NavLink to='/search'   className={navlinkClass}>Keresés</NavLink>   
+                <NavLink to='/search'   className={navlinkClass}>Keresés</NavLink>
+                <NavLink to='/Actors'   className={navlinkClass}>Színészek</NavLink>      
               </div>
 
 
@@ -47,6 +48,7 @@ export const MyHeader = () => {
                 <NavLink to='/movies' className={navlinkClass}>Movies</NavLink>  
                 <NavLink to='/tv'   className={navlinkClass}>TV</NavLink>  
                 <NavLink to='/search'   className={navlinkClass}>Keresés</NavLink>   
+                <NavLink to='/Actors'   className={navlinkClass}>Színészek</NavLink> 
               </div>
             )
           }

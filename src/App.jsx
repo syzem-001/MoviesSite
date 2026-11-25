@@ -7,6 +7,7 @@ import { Movies } from './Pages/Movies'
 import { TvShows } from './Pages/TvShows'
 import { SearchMedia } from './Pages/SearchMedia'
 import { NotFound } from './Pages/NotFound'
+import { Actors } from './Pages/Actors'
 
 const myrouter = createBrowserRouter([
     {
@@ -30,7 +31,12 @@ const myrouter = createBrowserRouter([
         {
           path:'*',
           element:<NotFound/> 
+        },
+        {
+          path:'/Actors',
+          element:<Actors/>
         }
+
       ]
     }
   ])
